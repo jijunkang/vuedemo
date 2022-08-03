@@ -74,6 +74,36 @@
   <button v-on:click="kilometers += 1">增加 1</button>
   <p>这个按钮被点击了 {{ kilometers }} 次。</p>
   <button v-on:click="greet">Greet</button>
+  <hr>
+
+  双向绑定
+  <p>多个复选框：</p>
+  <input type="checkbox" id="runoob" value="Runoob" v-model="checkedNames">
+  <label for="runoob">Runoob</label>
+  <input type="checkbox" id="google" value="Google" v-model="checkedNames">
+  <label for="google">Google</label>
+  <input type="checkbox" id="taobao" value="Taobao" v-model="checkedNames">
+  <label for="taobao">taobao</label>
+  <br>
+  <span>选择的值为: {{ checkedNames }}</span>
+  <br><br>
+  <select v-model="selected" name="fruit">
+    <option value="">选择一个网站</option>
+    <option value="www.runoob.com">Runoob</option>
+    <option value="www.google.com">Google</option>
+  </select>
+  <div id="output">
+    选择的网站是: {{selected}}
+  </div>
+
+  <br>修饰符lazy
+  <input v-model.lazy="msg" >
+  <p>{{msg}}</p>
+  <br>修饰符number
+  <input v-model.number="meters" type="number">
+  <br>修饰符trim
+  <input v-model.trim="msg">
+  <p>{{msg}}</p>
 
 </template>
 
@@ -111,7 +141,11 @@ export default {
       },
       overridingStyles: {
         'font-weight': 'bold'
-      }
+      },
+      checked : false,
+      checkedNames: [],
+      selected:''
+
 
     }
   },
